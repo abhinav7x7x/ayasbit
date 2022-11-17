@@ -1,0 +1,1022 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+         * {
+         box-sizing: border-box;
+         } 
+          html {
+          scroll-behavior: smooth;
+          }
+          .collapsible {
+          background-color: #FCD434;
+         
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          }
+          .active, .collapsible:hover {
+          background-color: #FCD434;;
+          }
+          .content {
+          padding: 0 18px;
+          display: none;
+          overflow: hidden;
+          background-color: #f1f1f1;
+          }
+          .switch {
+          position: relative;
+          display: inline-block;
+          width: 40px;
+          height: 20px;
+          }
+          .switch input { 
+          opacity: 0;
+          width: 0;
+          height: 0;
+          }
+          .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+          }
+          .slider:before {
+          position: absolute;
+          content: "";
+          height: 16px;
+          width: 16px;
+          left: 4px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: .0s;
+          transition: .0s;
+          }
+          input:checked + .slider {
+          background-color: #121212;
+          }
+          input:checked + .slider:before {
+          -webkit-transform: translateX(16px);
+          -ms-transform: translateX(16px);
+          transform: translateX(16px);
+          }
+          .slider.round {
+          border-radius: 34px;
+          }
+          .slider.round:before {
+          border-radius: 50%;
+          }
+          
+         .main_content {
+         width : 80%;
+         margin: 0 auto;   
+         }
+         .menu {  
+         width: 80%;
+         margin: 0 auto;
+         padding: 20px 0;
+         }
+         .menuitem {
+         padding: 20px 10px;
+         }
+         .chart {
+         height : 200px;
+         }
+         .main {
+         float: left;
+         width: 60%;  
+         overflow: hidden;
+         }
+         .right {
+         float: left;
+         width: 40%;
+         padding: 0px 20px;
+         margin-top: 7px;
+         }
+         .exchange_info {
+         width: 100%;
+         max-height : 300px;
+         overflow: auto;
+         }
+         .detail_info {
+         width: 100%;
+         height : 100px;
+         overflow: auto;
+         background-color: #f1F1F1;
+         }
+         input[type=number], select {
+         width: 98%;
+         padding: 12px 20px;
+         margin: 8px auto;
+         display: inline-block;
+         border: none;
+         background-color : #f1f1f1;
+         border-radius: 4px;
+         box-sizing: border-box;
+         }
+         .convertor {
+         width : 50%;
+         float:left;  
+         }
+         .extable {
+         width : 100%;
+         border-collapse: collapse; 
+         background-color : #f9f9f9;
+         }
+         .extable th {
+         background-color : #f1f1f1;
+         text-align:left;         
+         }
+         .extable td {
+         padding : 10px 0;
+         }
+         .list_cl {
+         height : 200px;
+         width : 100%;
+         background-color: #121212;
+         color : #f9f9f9;
+         border : none;
+         }
+         .btn_edit {
+           width : 95%;
+         }
+         .table_link {
+         text-decoration: none;
+         color :FF4500;
+         }
+
+         @media only screen and (max-width:800px) {
+         /* For tablets: */
+         .main {
+         width: 90%;
+         text-align:left;
+         }
+         .right {
+         width: 90%;
+         }
+         .main_content {
+         width : 100%;    
+         }
+         .menu {  
+         width: 90%;
+         }
+      }
+         @media only screen and (max-width:500px) {
+         /* For mobile phones: */
+         .menu, .main, .right, .bottom, .main_content, .convertor, .btn_edit, .edit_class {
+         width: 100%;
+         }
+         .chart {
+         height : 300px;
+         }
+         .detail_info {
+         height : 300px;
+         }
+         .exchange_info { 
+         max-height : 500px;
+         }
+         input[type=number], select {
+         width: 100%;
+         }
+         .list_cl {
+         height : 200px;
+         }                                    
+      }
+      </style>
+<link rel="me" href="https://www.blogger.com/profile/01609703651328965905" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109' />
+<meta name='google-adsense-platform-domain' content='blogspot.com' />
+</head>
+<body style="font-family:Verdana;">
+<div id="inverse1" style="background-color:#f1f1f1;">
+<img id="banner_id" src="https://i.imgur.com/2q841VL.png">
+</div>
+<div id="start_page">
+<div id="inverse2" style="background-color:#f1f1f1;padding:1px;">
+<div style="padding:20px 10px;">
+<h3 id="inverse71"> Made Bitcoin blockchain accessible & home with Ayas Bit ( ayasbit.com )</h3>
+</div>
+</div>
+<div style="overflow:auto">
+<div id="inverse3" class="menu">
+<div class="menuitem">
+<div style="padding: 10px >0px;">
+<div align="right" sttle="width:40px;">
+<label class="switch">
+<input type="checkbox" onClick="switch_mode()" ">
+<span class="slider round"></span>
+</div>
+</label>
+<table>
+<td>
+<span style="float:left;  margin-left:5px; ">
+<h2 id="price_box" style=" text-align:right; padding-right: 10px;  weight:100;"> Loading... </h2>
+</span>
+<span style="float:left; margin-left:5px;">
+<h3 id="price_sign" style=" text-align:right; padding-right: 10px; color:#21C185; weight:100;"> . </h3>
+</span>
+</td>
+</table>
+</div>
+<div class="chart">
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script> <script type="text/javascript">
+                  new TradingView.widget({
+                  "autosize": true, "symbol": "BITSTAMP:BTCUSD", "interval": "D",    "timezone": "Etc/UTC",    "theme": "Dark",    "style": "1",    "locale": "en",    "toolbar_bg": "#f1f3f6",   "enable_publishing": false,    "allow_symbol_change": true,    "hideideas": true    });            
+                  </script>
+</div>
+</div>
+<div class="menuitem">
+<div align="left" class="convertor">
+<input id="btc_text" onkeyup="convert_btc()" type="number" name="btc_val_name" placeholder="Value in BTC">
+</div>
+<div align="right" class="convertor">
+<input id="usd_text" type="number" onkeyup="convert_usd()" name="usd_val_name" placeholder="Value in USD">
+</div>
+</div>
+<div>
+<div id="inverse4" class="main">
+<div style="padding:30px 20px; padding-bottom:0;">
+<h3 id="inverse5">BTC movement Live</h3>
+<p id="exch_article">Loading... </p>
+<div id="inverse20" style="background-color:#f1f1f1;">
+<h2 id="sent_head" style=" text-align:center; color: #21C185; font-family:'Courier New',monospace; "> Loading... </h2>
+<img id="exchange_id" src="https://i.imgur.com/yKt78Xv.png" style="width:100%">
+<h2 id="recieved_head" style=" text-align:center; color:#F6465D; font-family :  'Courier New', monospace;"> Loading... </h2>
+</div>
+<div style=" padding: 20px 0px; ">
+<h3 id="inverse7" style="weight:100;">BTC Matrix Data Info </h3>
+<p id="detail_article"> Loading...</p>
+</div>
+</div>
+</div>
+</div>
+<div id="inverse21" class="right">
+<div style=" padding-bottom: 20px; ">
+<h3 id="inverse8" style="weight :100"> BTC Exchanges Live</h3>
+<div id="inverse9" class="exchange_info">
+<table id="exchange_table" class="extable">
+<tr>
+<th id="th1">Name</th>
+<th id="th2">Balance</th>
+<th id="th3">Sent</th>
+<th id="th4">Recieved</th>
+</tr>
+</table>
+</div>
+<button class="collapsible" id="inverse10" style="padding : 14px 0;; text-align : center;width:100%; border:none ; background-color: #FCD434 ; ">
+Edit List
+</button>
+<div class="content">
+<div id="edit_parent" style="padding:20px 0px;">
+<h3 id="inverse501" style="weight : 100;">Edit List</h3>
+<p id="inverse502" style="">format exchange name,its bitcoin address {no comma after last address} </p> <p style=" color:red;"> Saving the changes will result in restart of the AyasBit capture mode .</p>
+<textarea id="textarea_id" class="list_cl"> </textarea>
+<div align = left class="convertor" style="padding : 10px 0;">
+<button class="btn_edit" id="inverse301" onClick="save_list()" style=" border:none ; background-color: #FCD434 ; "> <p>Save list</p></button>
+</div>
+<div align = right class="convertor" style="padding : 10px 0;">
+<button class="btn_edit" id="inverse302" onClick="return_from_list()" style=" border:none ; background-color: #FCD434 ; "> <p>Discard</p></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="main">
+<div style="padding:20px 20px;">
+<h3 id="inverse11" style="weight :100;"> BTC Blockchain Live Information</h3>
+<div id="inverse12" class="detail_info">
+<p id="block" style=" text-align:center; padding-left:10px;padding-right:10px;padding-top:10px;padding-bottom:10px;"> Loading ...</p>
+</div>
+<div style="padding : 0px;">
+</div>
+<div style="padding:10px 0px;">
+<h3 id="a131" style="weight :100;"> <br> News , upcomming projects & more .. </h3>
+<div onclick="location.href='https://t.me/ayasbit';">
+<p id="a132" style="weight :100;"> <br>
+</h3>
+<b> Telegram Group </b> <br> <br> we finally launched our midnight telegram group as a way to share updates and make the community even stronger thus making the world feel our presence .<br> <br><b> CLICK TO JOIN ...</b>
+<img src="https://i.imgur.com/gp73VWC.png" style="width:100%; padding:10px 0;"> <a href="https://t.me/ayasbit"> join telegram... <br> <br></a></p>
+</div>
+</div>
+<div style="padding:10px 0px;">
+<h3 id="a133" style="weight :100;"> <br> Ongoing .. </h3>
+<div onclick="location.href='';">
+<p id="a134" style="weight :100;"> <br> Discord in progress .. <br> A special club formation in which NFTs can play a great role ....
+</h3>
+<img src="https://i.imgur.com/mYdBZ2m.png" style="width:100%; padding:10px 0;"> <a href=""> <br> <br></a></p>
+</div>
+</div>
+<div style="padding:10px 0px;">
+<h3 id="a833" style="weight :100;"> <br> Secret infos </h3>
+<div onclick="location.href='';">
+<p id="a834" style="weight :100;"> <br> No recent updates ..
+</h3>
+<img src="" class=""> <a href=""> <br> <br></a></p>
+</div>
+</div>
+<div style="padding : 60px;">
+</div>
+<div style="padding:0px 0px;">
+<h3 id="a13z" style="weight :100;"> <br> FAQs</h3>
+<button id="a320" type="button" class="collapsible">Why Loading takes longer ??</button>
+<div class="content">
+<p>ayasbit.com takes some time to load the informations but if the loading takes longer , it might be due to an improper internet connection or an unsupported web browser , latest version of chrome is recommended .</p>
+</div>
+<div style=" width:0%; height : 1px; background-color:black"></div>
+<button id="a321" type="button" class="collapsible">What does "+" , "-" represent beside the price ??</button>
+<div class="content">
+<p> In order to represent , the current price has increased or decreased from the last price the signs have been placed "+" represent increased ( or unchanged ), "-" represent decreased .</p>
+</div>
+<div style=" width:0%; height : 1px; background-color:black"></div>
+<button id="a322" type="button" class="collapsible">What does "+" , "-" represent beside the exchanges balance in the Exchanges table ??</button>
+<div class="content">
+<p> The "+" , "-" signs beside the exchanges balance shows has the current total balance increased ( or unchanged ) or decreased from the initial balance since the capture started .</p>
+</div>
+<div style=" width:0%; height : 1px; background-color:black"></div>
+<button id="a323" type="button" class="collapsible">What does sent and recieved represent in the Exchanges table ??</button>
+<div class="content">
+<p> The sent and recieved are the total quantity of BTCs sent or recieved reapectively since the capture has been started from the particular exchange .</p>
+</div>
+<div style=" width:0%; height : 1px; background-color:black"></div>
+<button id="a324" type="button" class="collapsible">Why is BTC / USD price conversions not working ??</button>
+<div class="content">
+<p> A slow internet connection causes this irregularity , As the Ayas Bit converts price on the basis of the latest updated price .</p>
+</div>
+<div style=" width:0%; height : 1px; background-color:black"></div>
+<button id="a325" type="button" class="collapsible">Decimal places ??</button>
+<div class="content">
+<p> Ayas Bit shows decimal places upto two places except the BTC / USD conversion to mantain the usefulness of the infornations shown in it .</p>
+</div>
+<div style=" width:0%; height : 1px; background-color:black"></div>
+<button id="a326" type="button" class="collapsible">Share secret infos & website reports</button>
+<div class="content">
+<p> To share a secret info with AyasBit network or a report on the websites, mail us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c0d150d1f0e05180f0302180d0f182c0b010d0500420f0301">[email&#160;protected]</a> , we will review it and update you on it.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button id="inverse14" onclick="location.href='https://twitter.com/AyasBit';" style=" background-color:transparent;border:none; weight:100; width:100%; padding : 5px;  text-align:left;  "> <b>Twitter</b></button>
+<button id="inverse998" onclick="location.href='https://t.me/ayasbit';" style=" background-color:transparent;border:none; weight:100; width:100%; padding : 5px;  text-align:left;"> <b>Telegram</b></button>
+<button id="inverse16" onclick="location.href='https://aboutpagexxyyzz.blogspot.com/';" style=" background-color:transparent;border:none; weight:100; width:100%; padding : 5px;  text-align:left;"> <b>About</b></button>
+<button id="inverse17" onclick="location.href='https://contactzzyyzz.blogspot.com/';" style="background-color:transparent;border:none;weight:100;  width:100%; padding : 5px; text-align:left;"> <b>Contact</b></button>
+<button id="inverse18" onclick="location.href='https://privacyxxyyzz.blogspot.com/';" style="background-color:transparent;border:none; weight:100; width:100%; padding : 5px; text-align:left;"> <b>Privacy Policy</b></button>
+<button id="inverse19" onclick="location.href='https://termsxxyzz.blogspot.com/';" style="background-color:transparent; border:none; weight:100; width:100%; padding : 5px; text-align:left;"> <b>Terms and Conditions</b></button>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script> 
+
+//////// Dump Yard ///////////
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+////////////
+
+
+let dark_mode = 0;
+
+function switch_mode() {
+
+if (dark_mode == 0) {
+    
+    dark_mode = 1;
+    
+    document.body.style.backgroundColor = "#000000";
+    
+    document.getElementById("inverse1").style.backgroundColor = "#121212";
+
+    document.getElementById("inverse2").style.backgroundColor = "#121212";
+
+    document.getElementById("btc_text").style.backgroundColor = "#121212";
+
+    document.getElementById("usd_text").style.backgroundColor = "#121212";
+
+    document.getElementById("inverse5").style.color = "#f1f1f1";
+
+    document.getElementById("exch_article").style.color = "#f1f1f1";
+
+    document.getElementById("detail_article").style.color = "#f1f1f1";
+
+    document.getElementById("inverse8").style.color = "#f1f1f1";
+
+    document.getElementById("inverse9").style.backgroundColor = "#121212";
+
+    document.getElementById("inverse9").style.color = "lightgreen";
+
+    document.getElementById("inverse3").style.backgroundColor = "#000000";
+
+    document.getElementById("inverse4").style.backgroundColor = "#000000";
+
+    document.getElementById("inverse20").style.backgroundColor = "#121212";
+
+    document.getElementById("inverse21").style.backgroundColor = "#000000";
+
+    document.getElementById("inverse12").style.backgroundColor = "#121212";
+
+    document.getElementById("inverse12").style.color = "lightgreen";
+
+    document.getElementById("inverse11").style.color = "#f1f1f1";
+
+    document.getElementById("a13z").style.color = "#f1f1f1";
+
+    document.getElementById("inverse14").style.color = "#f1f1f1";
+
+ //   document.getElementById("inverse15").style.color = "#f1f1f1";
+
+    document.getElementById("inverse16").style.color = "#f1f1f1";
+
+    document.getElementById("inverse17").style.color = "#f1f1f1";
+
+    document.getElementById("inverse18").style.color = "#f1f1f1";
+
+    document.getElementById("inverse19").style.color = "#f1f1f1";
+
+    document.getElementById("a131").style.color = "#f1f1f1";
+
+    document.getElementById("banner_id").src = "https://i.imgur.com/lSp0S3Z.png";
+
+    document.getElementById("exchange_id").src = "https://i.imgur.com/wIVAhYP.png";
+
+    document.getElementById("inverse7").style.color = "#f1f1f1";
+
+    document.getElementById("inverse71").style.color = "#f1f1f1";
+
+//    document.getElementById("inverse25").style.backgroundColor = "#121212";
+
+    document.getElementById("price_box").style.color = "#f1f1f1";
+
+    document.getElementById("exchange_table").style.backgroundColor = "#121212";
+    
+     document.getElementById("th1").style.backgroundColor = "#191919";
+
+     document.getElementById("th2").style.backgroundColor = "#191919";
+
+     document.getElementById("th3").style.backgroundColor = "#191919";
+
+     document.getElementById("th4").style.backgroundColor = "#191919";
+
+     document.getElementById("th1").style.color= "lightblue";
+
+     document.getElementById("th2").style.color= "lightblue";
+     
+     document.getElementById("th3").style.color= "lightblue";
+     
+     document.getElementById("th4").style.color= "lightblue";
+     
+     document.getElementById("btc_text").style.color = "#f1f1f1";
+     
+     document.getElementById("usd_text").style.color = "#f1f1f1";
+     
+     document.getElementById("inverse10").style.backgroundColor = "#696627";
+     
+     document.getElementById("inverse301").style.backgroundColor = "#696627";
+     
+     document.getElementById("inverse302").style.backgroundColor = "#696627";
+     
+      
+     
+     
+     
+ //    document.getElementById("inverse300").style.color = "#f1f1f1";
+     
+     document.getElementById("a131").style.color = "#f1f1f1";
+     
+     document.getElementById("a132").style.color = "#f1f1f1";
+     
+     document.getElementById("a133").style.color = "#f1f1f1";
+     
+     document.getElementById("a134").style.color = "#f1f1f1";
+     
+     document.getElementById("a320").style.backgroundColor = "#696627";
+     
+     document.getElementById("a321").style.backgroundColor = "#696627";
+     
+     document.getElementById("a322").style.backgroundColor = "#696627";
+     
+     document.getElementById("a323").style.backgroundColor = "#696627";
+     
+     document.getElementById("a324").style.backgroundColor = "#696627";
+     
+     document.getElementById("a325").style.backgroundColor = "#696627";
+     
+     document.getElementById("a326").style.backgroundColor = "#696627";
+     
+     document.getElementById("inverse501").style.color = "#121212";
+          
+     document.getElementById("inverse998").style.color = "#f1f1f1";
+     
+     document.getElementById("a833").style.color = "#f1f1f1";
+     
+     document.getElementById("a834").style.color = "#f1f1f1";
+     
+     return;
+
+}
+if (dark_mode == 1) {
+    
+    dark_mode = 0;
+    
+    document.body.style.backgroundColor = "#ffffff";
+
+    document.getElementById("inverse1").style.backgroundColor = "#f1f1f1";
+
+    document.getElementById("inverse2").style.backgroundColor = "#f1f1f1";
+
+    document.getElementById("btc_text").style.backgroundColor = "#f1f1f1";
+
+    document.getElementById("usd_text").style.backgroundColor = "#f1f1f1";
+
+    document.getElementById("inverse5").style.color = "#121212";
+
+    document.getElementById("exch_article").style.color = "#121212";
+
+    document.getElementById("detail_article").style.color = "#121212";
+
+    document.getElementById("inverse8").style.color = "#121212";
+
+    document.getElementById("inverse9").style.backgroundColor = "#f1f1f1";
+
+    document.getElementById("inverse9").style.color = "black";
+
+    document.getElementById("inverse3").style.backgroundColor = "#ffffff";
+
+    document.getElementById("inverse4").style.backgroundColor = "#ffffff";
+
+    document.getElementById("inverse20").style.backgroundColor = "#f1f1f1";
+
+    document.getElementById("inverse21").style.backgroundColor = "#ffffff";
+
+    document.getElementById("inverse12").style.backgroundColor = "#f1f1f1";
+
+    document.getElementById("inverse12").style.color = "black";
+
+    document.getElementById("inverse11").style.color = "#121212";
+
+    document.getElementById("a131").style.color = "#121212";
+
+    document.getElementById("inverse14").style.color = "#121212";
+
+  //  document.getElementById("inverse15").style.color = "#121212";
+
+    document.getElementById("inverse16").style.color = "#121212";
+
+    document.getElementById("inverse17").style.color = "#121212";
+
+    document.getElementById("inverse18").style.color = "#121212";
+
+    document.getElementById("inverse19").style.color = "#121212";
+
+    document.getElementById("a13z").style.color = "#121212";
+
+    document.getElementById("banner_id").src = "https://i.imgur.com/2q841VL.png";
+
+    document.getElementById("exchange_id").src = "https://i.imgur.com/yKt78Xv.png";
+
+    document.getElementById("inverse7").style.color = "#121212";
+
+    document.getElementById("inverse71").style.color = "#121212";
+
+//    document.getElementById("inverse25").style.backgroundColor = "#f1f1f1";
+
+    document.getElementById("price_box").style.color = "#121212";
+
+    document.getElementById("exchange_table").style.backgroundColor = "#f9f9f9";
+    
+     document.getElementById("th1").style.backgroundColor = "#f1f1f1";
+
+     document.getElementById("th2").style.backgroundColor = "#f1f1f1";
+
+     document.getElementById("th3").style.backgroundColor = "#f1f1f1";
+
+     document.getElementById("th4").style.backgroundColor = "#f1f1f1";
+
+     document.getElementById("th1").style.color= "black";
+
+     document.getElementById("th2").style.color= "black";
+     
+     document.getElementById("th3").style.color= "black";
+     
+     document.getElementById("th4").style.color= "black";
+     
+     document.getElementById("btc_text").style.color = "#121212";
+     
+     document.getElementById("usd_text").style.color = "#121212";
+     
+     document.getElementById("inverse10").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("inverse302").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("a320").style.backgroundColor = "#FCD434";
+     
+     
+     
+    
+     
+     document.getElementById("usd_text").style.color = "#121212";
+     
+     document.getElementById("a321").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("a322").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("a323").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("a324").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("a325").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("a326").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("inverse998").style.color = "#121212";
+     
+     document.getElementById("inverse301").style.backgroundColor = "#FCD434";
+     
+     document.getElementById("a132").style.color = "#121212";
+     
+     document.getElementById("a133").style.color = "#121212";
+     
+     document.getElementById("a134").style.color = "#121212";
+     
+     document.getElementById("a833").style.color = "#121212";
+     
+     document.getElementById("a834").style.color = "#121212";
+     
+     
+}
+}
+
+
+
+
+
+
+let exchange_detail_string = "Binance,bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h,CoinCheck,3LCGsSmfr24demGvriN4e3ft8wEcDuHFqh,Bitfinex,1Kr6QSydW9bFQG1mXiPNNu6WpJGmUa9i1g";
+let ex_firat_run = true ;
+let loop_run = true;
+capper(1);
+
+
+async function convert_btc()  {
+        let allCharacters = "";
+        let url = "https://blockchain.info/tobtc?currency=USD&value=1";
+        let response = await fetch(url);
+        let price = await response.json();
+        price = 1 / price;
+        let btc_value = document.getElementById("btc_text").value;
+        let usd_value = document.getElementById("usd_text").value;
+        let val = price * btc_value;
+        document.getElementById("usd_text").value = val.toFixed(8);
+}
+
+
+async function convert_usd()  {
+        let allCharacters = "";        
+        let url = "https://blockchain.info/tobtc?currency=USD&value=1";        
+        let response = await fetch(url);        
+        let price = await response.json();
+        price = 1 / price;        
+        let btc_value = document.getElementById("btc_text").value;
+        let usd_value = document.getElementById("usd_text").value;        
+        let val = usd_value / price;
+        document.getElementById("btc_text").value = val.toFixed(8);
+    }
+
+
+
+let new_run = 0;
+let updation = 1;
+function save_list() {
+alert ("Update started ...");
+updation = 0;
+ex_firat_run = true;
+let name_strxc = get_exchange_addr_arr(0);
+let name_arrxc = name_strxc.split(",");
+let cnt = document.getElementById("exchange_table").rows.length ;
+
+for (let i = 1; i <  cnt; i++) {    
+ document.getElementById("exchange_table").deleteRow(-1);
+}
+
+exchange_detail_string = document.getElementById("textarea_id").value;
+ex_firat_run = true ;
+document.getElementById("block").innerHTML = "Loading...";
+document.getElementById("detail_article").innerHTML = "Loading...";
+document.getElementById("recieved_head").innerHTML = "Loading...";
+document.getElementById("sent_head").innerHTML = "Loading...";
+document.getElementById("exch_article").innerHTML = "Loading...";
+document.getElementById("price_box").innerHTML = "Loading...";
+document.getElementById("price_sign").innerHTML = ".";
+new_run = 1;
+}
+
+function return_from_list() {
+document.getElementById("textarea_id").value = exchange_detail_string;
+}
+
+function edit_page_popup() {
+window.scroll(0,  
+         findPosition(document.getElementById("edit_parent"))); 
+            } 
+            function findPosition(obj) { 
+                var currenttop = 0; 
+                if (obj.offsetParent) { 
+                    do { 
+                        currenttop += obj.offsetTop; 
+                    } while ((obj = obj.offsetParent)); 
+                    return [currenttop]; 
+                } 
+}
+
+///// NOTE : 0 : to get exchange name , 1 : to get its address //////
+
+
+function get_exchange_addr_arr(start) {
+let return_value = "";
+let exchange_detail_arr = exchange_detail_string.split(",");
+for (let i = start; i < exchange_detail_arr.length; i = i + 2) {
+    return_value += exchange_detail_arr[i] + ",";
+}
+return_value = return_value.substr(0, return_value.length - 1);
+return return_value;
+}
+
+async function requestApi(url) {
+let allCharacters = "";
+const response = await fetch(url);
+const json = await response.json();
+return json;
+}
+
+
+
+async function capper(param) {
+var krtable = document.getElementById("exchange_table");  
+
+async function initialise_table () {
+document.getElementById("textarea_id").value = exchange_detail_string;
+
+         let addr_strzx = get_exchange_addr_arr(1);
+        let addr_arrzx = addr_strzx.split(",");
+             
+    for (let i = 0; i < addr_arrzx.length; i++) {    
+    ex_firat_run = false;    
+    
+    var row = krtable.insertRow(-1);    
+    var cell1 = row.insertCell(0);    
+    var cell2 = row.insertCell(1);    
+    var cell3 = row.insertCell(2);    
+    var cell4 = row.insertCell(3);          
+    cell1.innerHTML = "Loading..";    
+    cell2.innerHTML =  "Loading..";  
+    cell3.innerHTML = "Loading..";    
+    cell4.innerHTML = "Loading..";    
+    
+  }
+  }
+ await  initialise_table();
+    let last_price = 0;
+    await update_price();
+    //// update exchange details /////////////////////////////////////////////////////////       
+
+    let initial_send_arr = [];
+    let initial_recieve_arr = [];
+    let initial_balance_arr = [];
+
+    async function update_exchange_detail_initialise() {
+        let addr_str = get_exchange_addr_arr(1);
+        let addr_arr = addr_str.split(",");
+        for (let i = 0; i < addr_arr.length; i++) {
+            initial_send_arr[i] = await requestApi("https://blockchain.info/q/getsentbyaddress/" + addr_arr[i] + "?confirmations=6");
+            initial_recieve_arr[i] = await requestApi("https://blockchain.info/q/getreceivedbyaddress/" + addr_arr[i] + "?confirmations=6");
+            initial_balance_arr[i] = initial_recieve_arr[i] - initial_send_arr[i];
+        }
+    }
+
+    await update_exchange_detail_initialise();
+
+    async function update_exchange_detail() {
+        let bal_arr = [];
+        let recievearrx = [];
+        let sendarrx = [];        
+        let color_arr = [];
+        let str_to_set = "";
+        let addr_str = get_exchange_addr_arr(1);
+        let addr_arr = addr_str.split(",");
+        let name_str = get_exchange_addr_arr(0);
+        let name_arr = name_str.split(",");
+        for (let i = 0; i < addr_arr.length; i++) {
+            let current_send_ex = await requestApi("https://blockchain.info/q/getsentbyaddress/" + addr_arr[i] + "?confirmations=6");
+            let currrent_recieve_ex = await requestApi("https://blockchain.info/q/getreceivedbyaddress/" + addr_arr[i] + "?confirmations=6");
+            let bal = currrent_recieve_ex - current_send_ex;
+            let color = "+";
+            if (bal < initial_balance_arr [i]) {
+                color = "-";
+            }
+            color_arr [i]= color;
+            
+            let send_diff =  current_send_ex - initial_send_arr[i];
+            let recieve_diff =  currrent_recieve_ex - initial_recieve_arr[i];
+            bal_arr[i] = bal;
+            recievearrx[i] = recieve_diff;
+            sendarrx[i] = send_diff;
+        }
+        let mx = 0;
+        let index = 0;
+        let mx2 = 0;
+        let index2 = 0;
+        let mx3 = 0;
+        let index3 = 0;
+        for (let i = 0; i < addr_arr.length; i++) {
+            if (bal_arr[i] > mx) {
+                mx = bal_arr[i];
+                index = i;
+            }
+            if ( recievearrx[i] > mx2) {
+                mx2 = recievearrx[i];
+                index2 = i;
+            }
+            if (sendarrx[i] > mx3) {
+                mx = bal_arr[i];
+                index3 = i;
+            }
+        }
+        document.getElementById("detail_article").innerHTML = "The Bitcoin matrix data shows that " + name_arr[index] + " has the biggest holdings of Bitcoin ," + (numberWithCommas (  (bal_arr[index] / 100000000).toFixed(2)  )) + ". The maximum amount of Bitcoin to be moved to a crypto exchange is " + (numberWithCommas( (recievearrx[index2] / 100000000).toFixed(2))) + " BTC to " + name_arr[index2] + " and the most Bitcoin withdrawal has been captured from " + name_arr[index3] + ", " + (numberWithCommas ((sendarrx[index3] / 100000000).toFixed(2))) + " since capture started.";
+        //   document.getElementById("exchange_detail").innerHTML = str_to_set;⁸
+        
+        for (let i = 1; i < addr_arr.length +1; i++) {
+            ex_firat_run = false; 
+            try { 
+            var table_row = krtable.rows[i].cells;            
+        
+            table_row [0].innerHTML= "<a class = 'table_link' target = _blank href = https://www.blockchain.com/btc/address/" + addr_arr[i -1] + ">" + name_arr[i -1] + "</a>";           
+            table_row [1].innerHTML=  ( numberWithCommas(  ( bal_arr [i -1] / 100000000 ).toFixed(2) ) ) + color_arr[i -1] ;
+            table_row [2].innerHTML= ( sendarrx[i -1] / 100000000 ).toFixed(2);
+            table_row [3].innerHTML= ( recievearrx[i -1] / 100000000 ).toFixed(2);
+                } catch ( err ) {}
+        }
+    }
+
+    //// END update exchange details ////////////////////)))/////////////////////////////////////
+
+    ////))/))//////////// update other details ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    async function update_blockchain_details() {
+        document.getElementById("block").innerHTML =
+            "Current difficulty target : <br><br>" + (numberWithCommas( ( await requestApi("https://blockchain.info/q/getdifficulty")).toFixed(2)))
+            +            "<Br><hr> Current block height :<br> <br>" + (numberWithCommas(( await requestApi("https://blockchain.info/q/getblockcount")).toFixed(2)))
+            +            "<Br><hr> Current block reward (in BTC) : <br><br> " + (numberWithCommas((await requestApi("https://blockchain.info/q/bcperblock")).toFixed(2)))
+            +            "<Br><hr>  Total Bitcoins in circulation (delayed by up to 1-hour) <br><br> " + (numberWithCommas((await requestApi("https://blockchain.info/q/totalbc")).toFixed(2)))
+            +            "<Br><hr> Probability of finding a valid block each hash attemp<br> <br> " +(numberWithCommas(( await requestApi("https://blockchain.info/q/probability")).toFixed(2)))
+            +            "<br><hr> Average number of hash attempts needed to solve a block <br><br> " +(numberWithCommas(( await requestApi("https://blockchain.info/q/hashestowin")).toFixed(2)))
+            +            "<Br><hr> Block height of the next difficulty re-target <br><br> " +(numberWithCommas((await requestApi("https://blockchain.info/q/hashestowin")).toFixed(2)))
+            +            " <Br><hr> Average transaction size for the past 1000 blocks)<br><br>" + (numberWithCommas((await requestApi("https://blockchain.info/q/avgtxsize")).toFixed(2)))
+            +            "<Br><hr> Average transaction value (1000-tx) <br> <br>" +(numberWithCommas(( await requestApi("https://blockchain.info/q/avgtxvalue")).toFixed(2)))
+            +            "<Br><hr> Average time between blocks (in-second)<br> <br>" +(numberWithCommas( (await requestApi("https://blockchain.info/q/interval")).toFixed(2)))
+            +           "<Br><hr> Estimated time until the next block (in-seconds)<br><br>" +(numberWithCommas((await requestApi("https://blockchain.info/q/eta")).toFixed(2)))
+            +           "<Br><hr> Average number of transactions per block ( 100)<br><br> "  +(numberWithCommas( (  await  requestApi("https://blockchain.info/q/avgtxnumber")).toFixed(2)));
+    }
+    
+    ///// ENX update details ////////////////////////////////////////////////////////////////////////////////////////////////////////////)///////   
+
+    ///////////// PRICE //////////////////////////////////////////////////////////////////////////////////
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    async function get_price() {
+        let price = await requestApi("https://blockchain.info/tobtc?currency=USD&value=1");
+        price = 1 / price;
+        return price;
+    }
+
+    async function update_price() {
+        let current_price = await get_price();
+        current_price = current_price.toFixed(2);
+        if (current_price > last_price) {
+            document.getElementById("price_sign").style.color = "#21C185";
+            document.getElementById("price_sign").innerHTML = "+";
+        }
+        if (current_price < last_price) {
+            document.getElementById("price_sign").style.color = "#F6465D";
+            document.getElementById("price_sign").innerHTML = "-";
+        }
+        last_price = current_price;
+        document.getElementById("price_box").innerHTML = "$ " + numberWithCommas(current_price);
+    }
+    //// END PRICE //////////////////////////////////////////////////////////////////////////////
+
+    ///// TOTAL send and reciev3 /////////////////////////////))//////////////////////////////////
+
+    async function get_total_send() {
+        let addr_str = get_exchange_addr_arr(1);
+        let addr_arr = addr_str.split(",");
+        let valx = 0;
+        for (let i = 0; i < addr_arr.length; i++) {
+            let xyz = await requestApi("https://blockchain.info/q/getsentbyaddress/" + addr_arr[i] + "?confirmations=6");
+            valx = valx + xyz;
+        }
+        return (valx / 100000000);
+    }
+
+    async function get_total_recieved() {
+
+        let addr_str = get_exchange_addr_arr(1);
+        let addr_arr = addr_str.split(",");
+        let valx = 0;
+        for (let i = 0; i < addr_arr.length; i++) {
+            let xyz = await requestApi("https://blockchain.info/q/getreceivedbyaddress/" + addr_arr[i] + "?confirmations=6"); //
+            valx = valx + xyz;
+        }
+        return (valx / 100000000);
+    }   
+async function reup () {
+    if ( new_run == 1)
+    {
+    
+         new_run = 0;
+         initial_total_send = await get_total_send();
+         initial_total_recieve = await get_total_recieved(); 
+         await  update_exchange_detail_initialise();         
+        await  initialise_table();
+        updation = 1;
+    alert ("Updated  Success !!");
+    }}
+
+    let initial_total_send = await get_total_send();
+    let initial_total_recieve = await get_total_recieved();   
+    while ( 0 < 1) {
+        await reup ();
+        await update_price();        
+        let current_total_send = await get_total_send() ;       
+        let current_total_recieve = await get_total_recieved() ;
+        let diff_send = current_total_send - initial_total_send;
+        let diff_recieve = current_total_recieve - initial_total_recieve;
+        let ax1 = "buying";
+        let ax2 = "bullish";
+        let ax3 = "increase";
+        if ( diff_send < diff_recieve ) {
+            ax1 = "selling";
+            ax2 = "bearish";
+            ax3 = "decrease";
+        }
+        document.getElementById("exch_article").innerHTML = "The live information from the Bitcoin blockchain shows that a total of " + (numberWithCommas ( diff_send.toFixed(2)))+ " has been moved from different crypto exchanges to BTC wallets and " +(numberWithCommas(  diff_recieve.toFixed(2) )) + " has been moved from BTC wallets to different crypto exchanges since capture has been started . which indicates the interest of traders in " + ax1 + " Bitcoin and other traders are " + ax2 + " on Bitcoin . And a price " + ax3 + " can be expected soon .";
+             if (  diff_send < 0 ) {
+                  document.getElementById("sent_head").innerHTML = "Loading...";
+                  }else {
+             document.getElementById("sent_head").innerHTML = ( diff_send.toFixed(2)) + " BTC";
+      }
+      //     document.getElementById("sent_head").style.visibility = "hidden";
+            function myFunction() {
+                    document.getElementById("sent_head").style.visibility = "visible";
+            }
+            setTimeout(myFunction, 300);
+            last_diff_send = diff_send;
+        if (  diff_recieve < 0 ) {
+        document.getElementById("recieved_head").innerHTML = "Loading...";
+        }else {
+                    document.getElementById("recieved_head").innerHTML = ( diff_recieve.toFixed(2)) + " BTC";
+     }       
+            document.getElementById("recieved_head").style.visibility = "hidden";
+            function myFunction() {              
+                    document.getElementById("recieved_head").style.visibility = "visible";
+            }
+            await update_price();
+            setTimeout(myFunction, 300);
+            last_diff_recieve = diff_recieve;
+           
+           await update_exchange_detail();
+            
+            await update_blockchain_details();
+           
+    } 
+  
+}
+
+
+</script>
+</body>
+</html>
